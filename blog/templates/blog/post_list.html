@@ -52,7 +52,15 @@ var disqus_developer = 1;
 <body>
     <div class="container">
 
-								    
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/logout">logout</a></li>
+        
+      </ul>	    
+      <ul id="dropdown2" class="dropdown-content">
+          <li><a href="/login">login</a></li>
+          <li><a href="/register">register</a></li>
+          
+        </ul>	
         <nav>
             <div class="nav-wrapper">
               <a href="#" class="brand-logo">Adit Bio-Sciences</a>
@@ -63,6 +71,12 @@ var disqus_developer = 1;
                 <li><a href="aboutus">About Us</a></li>
                 <li><a href="news">News</a></li>
                 <li><a href="edu">Farmer Education</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1" href="#">{{user.username}}</a></li>
+                {% else %}
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown2" href="#">login/register</a></li>
+                
+                {% endif %}
               </ul>
             </div>
           </nav>

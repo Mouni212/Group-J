@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+
+
+    <style>
+    .card-image{
+
+
+      width: 300px;
+      height: 430px;
+    }
+
+   
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+        /* Smartphones (portrait and landscape) ----------- */
+
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            /* Styles */
+        }
+        /* Smartphones (landscape) ----------- */
+
+        @media only screen and (min-width: 321px) {
+            /* Styles */
+        }
+        /* Smartphones (portrait) ----------- */
+
+        @media only screen and (max-width: 320px) {
+            /* Styles */
+        }
+        /* iPads (portrait and landscape) ----------- */
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            /* Styles */
+        }
+        /* iPads (landscape) ----------- */
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+            /* Styles */
+            .container {
+                width: 70%;
+            }
+        }
+        /* iPads (portrait) ----------- */
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            /* Styles */
+            .container {
+                width: 70%;
+            }
+        }
+        /* Desktops and laptops ----------- */
+
+        @media only screen and (min-width: 1224px) {
+            /* Styles */
+            .container {
+                width: 70%;
+            }
+        }
+        /* Large screens ----------- */
+
+        @media only screen and (min-width: 1824px) {
+            /* Styles */
+            .container {
+                width: 70%;
+            }
+        }
+        /* iPhone 4 ----------- */
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+        only screen and (min-device-pixel-ratio: 1.5) {
+            /* Styles */
+        }
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+//var disqus_developer = 1;
+</script>
+<script>
+
+					/**
+					*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+					*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+					/*
+					var disqus_config = function () {
+					this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+					this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+					};
+					*/
+/*
+          var disqus_config = function () {
+        this.page.url = 'http://72758050.ngrok.io/';
+
+        this.page.title = 'Document';
+    };
+					(function() { // DON'T EDIT BELOW THIS LINE
+					var d = document, s = d.createElement('script');
+					s.src = 'https://groupj.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+					})();
+
+*/
+
+					</script>
+
+					<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/penna" type="text/css"/>
+
+</head>
+<body>
+    <div>
+
+          <nav class="white">
+            <div class="nav-wrapper">
+
+              <a href="/" class="brand-logo black-text">Adit Bio-Sciences</a>
+              <ul id="nav-mobile" class=" right hide-on-med-and-down black-text">
+                  <li> <a href="#">   <img src="/static/2.png"></a></li>
+                  <li><a href="#">  <img src="/static/0.png"></a></li>
+                  <li><a href="#">  <img src="/static/9.png"></a></li>
+                  {% if user.is_authenticated %}
+                <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1" href="#">{{user.username}}</a></li>
+                <li><a class="black-text" href="/logout">logout</a></li>
+                {% else %}
+                
+                <li><a class="black-text waves-effect waves-light btn" href="/login">login</a></li>
+                <li><a class="black-text waves-effect waves-light btn" href="/register">register</a></li>
+
+                {% endif %}
+                  
+               
+
+              </ul>
+
+
+            </div>
+
+
+          </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/logout">logout</a></li>
+
+      </ul>
+      <ul id="dropdown2" class="dropdown-content">
+          <li><a href="/login">login</a></li>
+          <li><a href="/register">register</a></li>
+
+        </ul>
+        <nav>
+            <div class="nav-wrapper">
+              
+              <ul id="nav-mobile" class=" left-align hide-on-med-and-down">
+                <li><a href="/product">Product</a></li>
+                <li><a href="career">Careers</a></li>
+                <li><a href="contactus">Contact Us</a></li>
+                <li><a href="aboutus">About Us</a></li>
+                <li><a href="news">News</a></li>
+                <li><a href="edu">Farmer Education</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1" href="#">{{user.username}}</a></li>
+                {% else %}
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown2" href="#">login/register</a></li>
+
+                {% endif %}
+              </ul>
+            </div>
+          </nav>
+    </div>
+    <div class="row">
+
+    </div>
+
+    <div class="slider qw container" >
+            <ul class="slides">
+              <li>
+                <img src="static/11.jpg">
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="/static/22.jpg">
+                <div class="caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="/static/33.jpg">
+                <div class="caption right-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="/static/44.jpg">
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+            </ul>
+              <div>
+                  <div class="row">
+
+
+                  </div>
+
+                  <div class="row">
+
+
+                    </div>
+
+                    <div class="row">
+
+
+                      </div>
+
+                  <div class="row z-depth-1 card-panel hoverable">
+
+
+
+
+
+
+                      <div class="col s3">
+                    <div class="row">
+                      <div class="card">
+                          <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator responsive-img" src="/static/55.jpg">
+                          </div>
+                          <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">This is a link</a></p>
+                          </div>
+                          <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col s1">
+
+                    </div>
+                    <div class="col s4">
+                      <blockquote>
+                      <h5>
+                          Lorem ipsum dolor sit amet, eos ne esse detraxit tincidunt. Hinc eros sed te, pri cu probo integre torquatos. Est ea alia vide complectitur, option aeterno his an. Cum veniam noluisse at, veri labore mediocrem sit no. Te labitur consetetur vel. No qui modo lorem.
+
+                          Aam doctus expetenda no eos.
+                      </h5>
+                      </blockquote>
+
+                      </div>
+                    <div class="col s1">
+
+                      </div>
+
+
+                    <div class="col s3">
+                        <div class="row">
+                          <div class="card">
+                              <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator responsive-img" src="/static/66.jpg">
+                              </div>
+                              <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">This is a link</a></p>
+                              </div>
+                              <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                                <p class="bold">Here is some more information about this product that is only revealed once clicked on.</p>
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+
+
+
+
+              </div>
+
+
+
+              <div>
+                  <div class="row">
+
+
+                  </div>
+
+                  <div class="row">
+
+
+                    </div>
+
+                    <div class="row">
+
+
+                      </div>
+
+                  <div class="row z-depth-1 card-panel hoverable">
+
+
+
+
+
+
+                      <div class="col s3">
+                    <div class="row">
+                      <div class="card">
+                          <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator responsive-img" src="/static/77.jpg">
+                          </div>
+                          <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">This is a link</a></p>
+                          </div>
+                          <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col s1">
+
+                    </div>
+                    <div class="col s4">
+                      <blockquote>
+                      <h5>
+                          Lorem ipsum dolor sit amet, eos ne esse detraxit tincidunt. Hinc eros sed te, pri cu probo integre torquatos. Est ea alia vide complectitur, option aeterno his an. Cum veniam noluisse at, veri labore mediocrem sit no. Te labitur consetetur vel. No qui modo lorem.
+
+                          Aam doctus expetenda no eos.
+                      </h5>
+                      </blockquote>
+
+                      </div>
+                    <div class="col s1">
+
+                      </div>
+
+
+                    <div class="col s3">
+                        <div class="row">
+                          <div class="card">
+                              <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator responsive-img" src="/static/88.jpg">
+                              </div>
+                              <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">This is a link</a></p>
+                              </div>
+                              <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                                <p class="bold">Here is some more information about this product that is only revealed once clicked on.</p>
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+
+
+
+
+              </div>
+
+
+
+
+              
+            <footer class="page-footer">
+                    <div>
+                      <div class="row">
+                        <div class="col l6 s12">
+                          <h5 class="white-text">Footer Content</h5>
+                          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                          <h5 class="white-text">Links</h5>
+                          <ul>
+                            <li><a class="grey-text text-lighten-3" href="/distributor">Oue Distributors</a></li>
+                            <li><a class="grey-text text-lighten-3" href="/business">Business</a></li>
+                            <li><a class="grey-text text-lighten-3" href="/investor">Investors</a></li>
+                            <li><a class="grey-text text-lighten-3" href="/newsroom">News Room</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Sitemap</a></li>
+                            <Row>
+                                <a href="#">   <img src="/static/2.png"></a>
+                                <a href="#">  <img src="/static/0.png"></a>
+                                <a href="#">  <img src="/static/9.png"></a>
+                            </Row>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer-copyright">
+                      <div class="container">
+                      © 2018 Adit Bio Sciences
+                      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                      </div>
+                    </div>
+                  </footer>
+           <!---       <div class="container">
+    <div id="disqus_thread"></div> -->
+                  </div>
+              
+
+          </div>
+<script>
+    $(document).ready(function(){
+      $('.slider').slider();
+      $('.slider').slider('start');
+    });
+</script>
+
+<script id="dsq-count-scr" src="//groupj.disqus.com/count.js" async></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application form</title>
+    <style>
+              body {
+  background-color:beige;
+}
+div {
+  font-family:helvetica;
+  color:darkgreen;
+
+}
+.dob {
+  width:50px;
+}
+footer {
+  color:grey;
+  font-size:10pt;
+  font-family:sans-serif;
+}
+button
+{
+  background-color:green;
+  color:beige;
+  width:170px;
+  height:25px;
+}
+button:hover {
+  color:yellow;
+  transform:scale(1.1);
+}
+.placeholder {
+  color:red;
+}
+</style>
+</head>
+<body>
+
+     <script>
+   function success () {
+  var rNum = Math.floor((Math.random()*1000000) + 1);
+  var msg = "Your Application number <strong>APP"+rNum+"</strong> Has been submitted successfully!";
+  document.getElementById("placeholder").innerHTML=msg;
+}
+</script>
+                <div align="center">
+  <h1>Application Form</h1>
+  <p class="placeholder" id="placeholder"></p>
+  <hr>
+  <table>
+  <tr>
+    <td><label>Enter Your Name : </label>         </td>
+    <td><input type="text" placeholder="e.g. Vishal Patel"/>
+    </td>
+  </tr>
+  <tr>
+    <td><label>Email Address : </label></td>
+    <td><input type="text" placeholder="email@domain.com"/></td>
+
+   </tr>
+   <tr>
+     <td><label>Date of Birth : </label></td>
+     <td><input class="dob" placeholder="MM" type="text"/> <input placeholder="DD" class="dob" type="text"/> <input class="dob" type="text" placeholder="YYYY"/></td>
+    </tr>
+    <tr>
+      <td><label>Country : </label></td>
+      <td><select><option value="India">India</option><option value="Russia">Russia</option><option>United States</option><option>Europe</option></select>
+      </td>
+    </tr>
+    <tr><td></td><td><br><button type="button" onclick="success();">SUBMIT YOUR FORM</button></td></tr>
+  </table>
+  <br><br><hr>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+ {% extends 'farmer_edu/base.html' %}
+ 
+ {% block content %}
+ <style>
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+        body {
+          font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        header {
+          background: 
+            linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url(/static/farmer_image.jpg);
+          background-size: cover;
+          height: 90vh;
+        }
+        
+        .title {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          text-align: center;
+        }
+        h1 {
+          text-transform: uppercase;
+          margin: 0;
+          font-size: 5rem;
+          white-space: nowrap;
+        }
+       h2{
+        text-transform: uppercase;
+        margin: 0;
+        font-size: 3rem;
+        white-space: nowrap;
+       }
+        p {
+          margin: 0;
+          font-size: 1.3rem;
+        }
+        
+        main {
+          max-width: 500px;
+          margin: 20px auto;
+        }
+        .horizontal
+        {
+            width: 200px;
+            border-top: 1px solid rgb(226, 226, 238);
+             position: absolute;
+            top: 50px;
+            left: 250px;
+        }
+</style>
+
+<header>
+        <div class="title">
+          <h1>Farmer Education</h1>
+          <br><br>
+        </div>
+    
+      </header>
+
+    {% for post in object_list %}
+        <br> <br>
+        <div class="post-entry">
+            <div class="container">
+                <div class="card small">
+                        <div class="card-image">
+                                {% load static %}
+                            <img src="{% static "farmer_back_image_1.jpg" %}"/>
+                            <span class="card-title">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            {{post.title}}
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'detail_post_view' post.pk %}"><span class="red-text text-lighten-3">Read more</span></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+ {% endblock %}
+     

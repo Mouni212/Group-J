@@ -1,0 +1,67 @@
+
+{% block content %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/penna" type="text/css"/>
+
+</head>
+<div  >
+  <div class="row">
+  <div class="col s4">
+
+  </div>
+  <div class="col s4 log">
+
+  
+
+
+          <div class="row">
+            <div class="col s4">
+
+            </div>
+            <div class="col s4 center-align">
+                <h2>Login</h2>
+              </div>
+          </div>
+          
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <div class="row">
+                <div class="col s4">
+            
+                  </div>
+                  <div class="col s4">
+            
+                    </div>
+                    <div class="col s4">
+            
+                      </div>
+            </div>
+
+            <div class="row">
+                <div class="col s4">
+            
+                  </div>
+                  <div class="col s4">
+            
+                    </div>
+                    <div class="col s4">
+            
+                      </div>
+            </div>
+            <div class="row">
+                <div class="col s4">
+            
+                </div>
+                <div class="col s4 center-align">
+                    <button class="btn center-align" type="submit">Login</button>
+                  </div>
+              </div>
+          
+          </form>
+        </div>
+  </div>
+  </div>
+{% endblock %}

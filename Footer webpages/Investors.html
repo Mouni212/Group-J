@@ -1,0 +1,975 @@
+
+{% extends 'Investors/base.html' %}
+
+{% block content %}
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+      <style>
+         
+* {
+   box-sizing: border-box;
+}
+
+.flex {
+   @include flex-display();
+
+   &.column {
+      @include flex-direction(column);
+   }
+
+   &.row {
+      @include flex-direction(row);
+   }
+
+   .swap1 {
+      @include order(1);
+   }
+
+   .swap2 {
+      @include order(2);
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   .flex {
+      .swap1 {
+         @include order(2);
+      }
+
+      .swap2 {
+         @include order(1);
+      }
+   }
+}
+
+section {
+   > .title {
+      text-align: center;
+      font-weight: bold;
+      padding: 20px;
+      padding-bottom: 10px;
+
+      &:after {
+         content: "";
+         display: block;
+         width: 100px;
+         height: 3px;
+         margin: 20px auto;
+         background-color: $c_green_light;
+      }
+   }
+}
+
+#top-menu {
+   margin-bottom: 0px;
+   padding: 10px;
+   border: none;
+   background: none;
+
+   .logo {
+      height: 30px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      @include translateY(-50%);
+      margin: auto;
+   }
+
+   #top-menu-content {
+      .nav > li > a {
+         padding-right: 5px;
+      }
+
+      .active a,
+      .open a {
+         background: none;
+      }
+
+      .dropdown-menu {
+         border: none;
+         box-shadow: none;
+         background-color: white;
+         background-color: rgba(255, 255, 255, 0.8);
+      }
+   }
+}
+
+@media screen and (max-width: $s_md) {
+   #top-menu {
+      .logo {
+         position: relative;
+      }
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   #top-menu {
+      .dropdown-toggle {
+         &:focus,
+         &:visited,
+         &:active {
+            color: #777;
+         }
+
+         .caret {
+            display: none;
+         }
+      }
+
+      .dropdown-menu {
+         display: block;
+         position: static;
+         width: 100%;
+         float: none;
+
+         .dropdown-header,
+         a {
+            padding: 5px 15px 5px 25px;
+         }
+
+         a {
+            line-height: 20px;
+            color: #777;
+         }
+      }
+   }
+}
+
+#top-picture {
+   width: 100%;
+   height: 500px;
+   // min-height: 300px;
+   // height: calc(100vh - 70px);
+   @include background-size(cover);
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   @include linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), url(484.jpg));
+
+   .content {
+      height: 100%;
+      @include flex-display();
+      @include justify-content(center);
+      @include align-items(flex-end);
+
+      .card {
+         max-width: 600px;
+         color: $c_gray_light;
+         text-align: center;
+         margin-bottom: 50px;
+
+         .title {
+         }
+
+         .line {
+            display: inline-block;
+            width: 100px;
+            height: 3px;
+            margin: 15px;
+            background-color: $c_green_light;
+         }
+
+         .description {
+            font-size: 24px;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   #top-picture {
+      height: 600px;
+      @include linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0), url(484.jpg));
+
+      .content {
+         @include align-items(flex-start);
+      }
+   }
+}
+
+section#partners {
+   .content {
+      // background-color: $c_gray_light;
+
+      .partner {
+         width: 100%;
+         height: 200px;
+         text-align: center;
+         @include flex-display();
+         @include justify-content(center);
+         @include align-items(center);
+
+         span {
+            display: inline-block;
+            height: 60px;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   section#partners .content .partner {
+      height: 150px;
+   }
+}
+
+section#positions {
+   .content {
+      .cards {
+         @include flex-display();
+         @include justify-content(space-between);
+
+         a {
+            text-decoration: none;
+            @include flex-basis(32%);
+            color: $c_gray_dark;
+         }
+
+         a:hover,
+         a:focus,
+         a:visited {
+            color: $c_green_light;
+         }
+
+         .card {
+            width: 100%;
+            height: 120px;
+            padding: 20px;
+            // margin: 20px;
+            text-align: center;
+            // background-color: $c_gray_light;
+            @include flex-display();
+            @include justify-content(center);
+            @include align-items(center);
+
+            .title {
+               font-weight: bold;
+            }
+         }
+      }
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   section#positions {
+      .content .cards {
+         @include flex-direction(column);
+      }
+   }
+}
+
+section#interns {
+   #intern-slider {
+      margin-bottom: 50px;
+
+      .card {
+         background-color: $c_green_dark;
+         color: $c_gray_light;
+
+         .picture {
+            min-width: 300px;
+            min-height: 300px;
+            @include background-size(cover);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+         }
+
+         .title-above {
+            display: none;
+         }
+
+         .info {
+            padding: 50px;
+
+            .title {
+               margin-top: 0px;
+               margin-bottom: 30px;
+            }
+
+            .desc {
+            }
+         }
+      }
+
+      .carousel-indicators {
+         bottom: -50px;
+
+         li {
+            background-color: $c_gray_light;
+            border: none;
+            width: 15px;
+            height: 15px;
+            margin: 0px;
+            margin-left: 5px;
+            margin-right: 5px;
+         }
+
+         li.active {
+            background-color: $c_green_light;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   section#interns {
+      #intern-slider {
+         margin-bottom: 0px;
+         margin-top: 30px;
+
+         .card {
+            @include flex-direction(column);
+
+            .title-above {
+               display: block;
+               margin: 0 auto;
+               padding: 20px;
+            }
+
+            .info {
+               text-align: center;
+               padding: 20px;
+               margin-bottom: 30px;
+
+               .title {
+                  margin: 0px;
+                  display: none;
+               }
+            }
+         }
+
+         .carousel-indicators {
+            top: -30px;
+         }
+      }
+   }
+}
+
+section#internship {
+   a {
+      text-decoration: none;
+      @include flex-basis(50%);
+      @include flex-display();
+      @include justify-content(center);
+      @include align-items(center);
+
+      h3 {
+         margin: 40px;
+      }
+   }
+
+   a,
+   a:focus,
+   a:visited,
+   a:hover {
+      color: $c_gray_light;
+   }
+
+   a.team {
+      background-color: $c_green_dark;
+   }
+
+   a.intern {
+      background-color: $c_green_light;
+   }
+}
+
+@media screen and (max-width: $s_sm) {
+   section#internship .flex {
+      @include flex-direction(column);
+   }
+}
+
+.footer {
+   background-image: url(https://s15.postimg.org/3omc3ewd7/wide_footer.jpg);
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   @include background-size(cover);
+
+   .content {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+
+      #footer-menu {
+         li {
+            margin-left: 10px;
+            margin-right: 10px;
+
+            a {
+               color: $c_gray_light;
+               text-decoration: none;
+            }
+         }
+      }
+
+      #copyright {
+         color: $c_gray_light;
+      }
+   }
+}
+
+.flex {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+}
+.flex.column {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  -ms-flex-direction: column;
+}
+.flex.row {
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -o-flex-direction: row;
+  -ms-flex-direction: row;
+}
+.flex .swap1 {
+  order: 1;
+  -webkit-order: 1;
+  -moz-order: 1;
+  -o-order: 1;
+  -ms-order: 1;
+}
+.flex .swap2 {
+  order: 2;
+  -webkit-order: 2;
+  -moz-order: 2;
+  -o-order: 2;
+  -ms-order: 2;
+}
+
+@media screen and (max-width: 767px) {
+  .flex .swap1 {
+    order: 2;
+    -webkit-order: 2;
+    -moz-order: 2;
+    -o-order: 2;
+    -ms-order: 2;
+  }
+  .flex .swap2 {
+    order: 1;
+    -webkit-order: 1;
+    -moz-order: 1;
+    -o-order: 1;
+    -ms-order: 1;
+  }
+}
+section > .title {
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+section > .title:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 20px auto;
+  background-color: #B9DE26;
+}
+
+#top-menu {
+  margin-bottom: 0px;
+  padding: 10px;
+  border: none;
+  background: none;
+}
+#top-menu .logo {
+  height: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: auto;
+}
+#top-menu #top-menu-content .nav > li > a {
+  padding-right: 5px;
+}
+#top-menu #top-menu-content .active a, #top-menu #top-menu-content .open a {
+  background: none;
+}
+#top-menu #top-menu-content .dropdown-menu {
+  border: none;
+  box-shadow: none;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (max-width: 991px) {
+  #top-menu .logo {
+    position: relative;
+  }
+}
+@media screen and (max-width: 767px) {
+  #top-menu .dropdown-toggle:focus, #top-menu .dropdown-toggle:visited, #top-menu .dropdown-toggle:active {
+    color: #777;
+  }
+  #top-menu .dropdown-toggle .caret {
+    display: none;
+  }
+  #top-menu .dropdown-menu {
+    display: block;
+    position: static;
+    width: 100%;
+    float: none;
+  }
+  #top-menu .dropdown-menu .dropdown-header, #top-menu .dropdown-menu a {
+    padding: 5px 15px 5px 25px;
+  }
+  #top-menu .dropdown-menu a {
+    line-height: 20px;
+    color: #777;
+  }
+}
+#top-picture {
+  width: 100%;
+  height: 500px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: rgba(0, 0, 0, 0.35), url(484.jpg);
+  /* Fallback */
+  background-image: url(484.jpg);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.7))), url(484.jpg);
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(484.jpg);
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(484.jpg);
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(484.jpg);
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(484.jpg);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0, 0, 0, 0)', EndColorStr='rgba(0, 0, 0, 0.7)')";
+}
+#top-picture .content {
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -o-align-items: flex-end;
+  -ms-align-items: flex-end;
+}
+#top-picture .content .card {
+  max-width: 600px;
+  color: #EAEAEA;
+  text-align: center;
+  margin-bottom: 50px;
+}
+#top-picture .content .card .line {
+  display: inline-block;
+  width: 100px;
+  height: 3px;
+  margin: 15px;
+  background-color: #B9DE26;
+}
+#top-picture .content .card .description {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  #top-picture {
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.35), url(484.jpg);
+    /* Fallback */
+    background-image: url(484.jpg);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0))), url(484.jpg);
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url(484.jpg);
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url(484.jpg);
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url(484.jpg);
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url(484.jpg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0, 0, 0, 0.7)', EndColorStr='rgba(0, 0, 0, 0)')";
+  }
+  #top-picture .content {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -o-align-items: flex-start;
+    -ms-align-items: flex-start;
+  }
+}
+section#partners .content .partner {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -o-align-items: center;
+  -ms-align-items: center;
+}
+section#partners .content .partner span {
+  display: inline-block;
+  height: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  section#partners .content .partner {
+    height: 150px;
+  }
+}
+section#positions .content .cards {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+}
+section#positions .content .cards a {
+  text-decoration: none;
+  flex-basis: 32%;
+  -webkit-flex-basis: 32%;
+  -moz-flex-basis: 32%;
+  -o-flex-basis: 32%;
+  -ms-flex-basis: 32%;
+  color: #9B9B9B;
+}
+section#positions .content .cards a:hover, section#positions .content .cards a:focus, section#positions .content .cards a:visited {
+  color: #B9DE26;
+}
+section#positions .content .cards .card {
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -o-align-items: center;
+  -ms-align-items: center;
+}
+section#positions .content .cards .card .title {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  section#positions .content .cards {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+}
+section#interns #intern-slider {
+  margin-bottom: 50px;
+}
+section#interns #intern-slider .card {
+  background-color: #79AD1A;
+  color: #EAEAEA;
+}
+section#interns #intern-slider .card .picture {
+  min-width: 300px;
+  min-height: 300px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+section#interns #intern-slider .card .title-above {
+  display: none;
+}
+section#interns #intern-slider .card .info {
+  padding: 50px;
+}
+section#interns #intern-slider .card .info .title {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+section#interns #intern-slider .carousel-indicators {
+  bottom: -50px;
+}
+section#interns #intern-slider .carousel-indicators li {
+  background-color: #EAEAEA;
+  border: none;
+  width: 15px;
+  height: 15px;
+  margin: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+section#interns #intern-slider .carousel-indicators li.active {
+  background-color: #B9DE26;
+}
+
+@media screen and (max-width: 767px) {
+  section#interns #intern-slider {
+    margin-bottom: 0px;
+    margin-top: 30px;
+  }
+  section#interns #intern-slider .card {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+  section#interns #intern-slider .card .title-above {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  section#interns #intern-slider .card .info {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  section#interns #intern-slider .card .info .title {
+    margin: 0px;
+    display: none;
+  }
+  section#interns #intern-slider .carousel-indicators {
+    top: -30px;
+  }
+}
+section#internship a {
+  text-decoration: none;
+  flex-basis: 50%;
+  -webkit-flex-basis: 50%;
+  -moz-flex-basis: 50%;
+  -o-flex-basis: 50%;
+  -ms-flex-basis: 50%;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -o-align-items: center;
+  -ms-align-items: center;
+}
+section#internship a h3 {
+  margin: 40px;
+}
+section#internship a, section#internship a:focus, section#internship a:visited, section#internship a:hover {
+  color: #EAEAEA;
+}
+section#internship a.team {
+  background-color: #79AD1A;
+}
+section#internship a.intern {
+  background-color: #B9DE26;
+}
+
+@media screen and (max-width: 767px) {
+  section#internship .flex {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+    -ms-flex-direction: column;
+  }
+}
+.footer {
+  background-image: url(https://s15.postimg.org/3omc3ewd7/wide_footer.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+.footer .content {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+.footer .content #footer-menu li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.footer .content #footer-menu li a {
+  color: #EAEAEA;
+  text-decoration: none;
+}
+.footer .content #copyright {
+  color: #EAEAEA;
+}
+
+      </style>
+
+  
+
+
+<header class="header" role="header">
+	<div id="top-picture">
+		<div class="content">
+			<div class="card">
+				<h1 class="title">Our Investors</h1>
+				<span class="line"></span>
+				<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda maxime eaque enim quae.</p>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="about">
+	<h4 class="title"></h4>
+	<div class="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+					<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit voluptatum dolor placeat, iste laborum quae. Sunt ex eum saepe voluptas doloribus neque reiciendis, vero voluptatem, possimus facere tempora consequatur suscipit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis quae nam veniam vitae optio, eum excepturi laborum facilis tenetur nesciunt rerum, aliquid nostrum non neque deleniti quisquam, harum quia dicta!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="partners">
+   <h4 class="title">We are supported by these great investors</h4>
+   <div class="content">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-4 col-xs-12">
+               <div class="partner">
+                  <div>
+                     <span>
+                        <a href="#" target="_blank"><img src="logo.png" alt="" /></a>
+                     </span>
+                     <p class="text-muted">Company A</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+               <div class="partner">
+                  <div>
+                     <span>
+                        <a href="#" target="_blank"><img src="logo.png" alt="" /></a>
+                     </span>
+                     <p class="text-muted">Company B</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+               <div class="partner">
+                  <div>
+                     <span>
+                        <a href="#" target="_blank"><img src="logo.png" alt="" /></a>
+                     </span>
+                     <p class="text-muted">Company C</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+<section id="interns">
+   <h4 class="title">Our Investors</h4>
+   <div class="content">
+      <div class="container">
+<!--          <div id="intern-slider" class="carousel slide" data-ride="carousel" data-pause="null" data-interval="3500"> -->
+         <div id="intern-slider" class="carousel slide">
+            <ol class="carousel-indicators">
+               <li data-target="#intern-slider" data-slide-to="0" class="active"></li>
+               <li data-target="#intern-slider" data-slide-to="1"></li>
+               <li data-target="#intern-slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="item active">
+                  <div class="card flex">
+							<h3 class="title-above">Pani Zlata</h3>
+                     <div class="picture" style="background-image: url(investor.jpg)"></div>
+                     <div class="info">
+                        <h3 class="title">Pani Zlata</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea corporis illum debitis deserunt velit quis non fuga necessitatibus recusandae beatae excepturi id consequuntur dignissimos ullam porro dolorum, sapiente optio repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ab dolor libero sequi laudantium provident, deserunt voluptatum dolorem necessitatibus quisquam neque quia odit perferendis quibusdam ratione ex culpa nisi fugiat?</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="card flex">
+							<h3 class="title-above">Pani Zlata</h3>
+                     <div class="picture" style="background-image: url(investor.jpg)"></div>
+                     <div class="info">
+                        <h3 class="title">Pani Zlata</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea corporis illum debitis deserunt velit quis non fuga necessitatibus recusandae beatae excepturi id consequuntur dignissimos ullam porro dolorum, sapiente optio repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ab dolor libero sequi laudantium provident, deserunt voluptatum dolorem necessitatibus quisquam neque quia odit perferendis quibusdam ratione ex culpa nisi fugiat?</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="card flex">
+							<h3 class="title-above">Pani Zlata</h3>
+                     <div class="picture" style="background-image: url(investor.jpg)"></div>
+                     <div class="info">
+                        <h3 class="title">Pani Zlata</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea corporis illum debitis deserunt velit quis non fuga necessitatibus recusandae beatae excepturi id consequuntur dignissimos ullam porro dolorum, sapiente optio repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ab dolor libero sequi laudantium provident, deserunt voluptatum dolorem necessitatibus quisquam neque quia odit perferendis quibusdam ratione ex culpa nisi fugiat?</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://use.fontawesome.com/21c5c3ad60.js'></script>
+
+  
+
+{% endblock %}

@@ -1,0 +1,177 @@
+
+{% extends 'Investors/base.html' %}
+
+{% block content %}
+ 
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+      <style>
+.contact {
+  padding: 15px 0;
+  border-bottom: 1px solid #dedede;
+}
+.contact__position {
+  font-size: 11px;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+.contact__phone {
+  margin: 0;
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg%20version%3D"1.1"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20xmlns%3Axlink%3D"http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink"%20viewBox%3D"0%200%2064%2064"><path%20d%3D"M44%2040c-4%204-4%208-8%208s-8-4-12-8-8-8-8-12%204-4%208-8-8-16-12-16-12%2012-12%2012c0%208%208.219%2024.219%2016%2032s24%2016%2032%2016c0%200%2012-8%2012-12s-12-16-16-12z"%20fill%3D"%23343434"><%2Fpath><%2Fsvg>');
+  background-repeat: no-repeat;
+  padding-left: 25px;
+  background-size: 15px;
+  background-position: left 3px;
+}
+.contact__email {
+  background-image: url('data:image/svg+xml;charset=utf-8,<svg%20version%3D"1.1"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20xmlns%3Axlink%3D"http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink"%20viewBox%3D"0%200%2064%2064"><path%20d%3D"M60%208h-56c-2.2%200-4%201.8-4%204v40c0%202.2%201.8%204%204%204h56c2.2%200%204-1.8%204-4v-40c0-2.2-1.8-4-4-4zM23.323%2039.092l-12%208.727c-0.399%200.291-0.863%200.43-1.322%200.43-0.695%200-1.381-0.321-1.822-0.927-0.731-1.005-0.509-2.412%200.496-3.143l12-8.727c1.005-0.731%202.412-0.509%203.143%200.496s0.509%202.412-0.496%203.143zM55.82%2047.323c-0.44%200.605-1.126%200.927-1.822%200.927-0.459%200-0.922-0.14-1.322-0.43l-12-8.727c-1.005-0.731-1.227-2.138-0.496-3.143s2.138-1.227%203.143-0.496l12%208.727c1.005%200.731%201.227%202.138%200.496%203.143zM55.323%2019.82l-22%2016c-0.394%200.287-0.859%200.43-1.323%200.43s-0.929-0.143-1.323-0.43l-22-16c-1.005-0.731-1.227-2.138-0.496-3.143s2.138-1.227%203.143-0.496l20.677%2015.037%2020.677-15.038c1.005-0.731%202.412-0.509%203.143%200.496s0.509%202.412-0.496%203.143z"%20fill%3D"%23343434"><%2Fpath><%2Fsvg>');
+  background-repeat: no-repeat;
+  padding-left: 25px;
+  background-size: 15px;
+  background-position: left 3px;
+}
+.contact__link {
+  color: #027864;
+}
+.contact__link:hover {
+  color: #6eab24;
+  border-color: #6eab24;
+  text-decoration: none;
+}
+.contact__title {
+  font-size: 15px;
+  color: #006150;
+  font-weight: 700;
+}
+.contact .pl-0 {
+  padding-left: 0;
+}
+.contact .p-0 {
+  padding: 0;
+}
+
+      </style>
+
+  
+
+
+  <div class="ir-contacts">
+    <div class="col-sm-6">
+        <div class="contact clearfix">
+            <div class="col-md-4 pl-0">
+                <img src="http://www.oldmutualplc.com/userimages/OMCOM_People_-PatrickBowes_292x300.jpg" alt="Patrick Bowes" class="img-responsive">
+            </div>
+            <div class="col-md-8 p-0">
+                <h5 class="text-uppercase contact__title">Patrick Bowes</h5>
+                <p class="text-uppercase contact__position">Director of External Communications</p>
+                <p class="contact__phone">
+                    <label>Tel</label>
+                    <a class="contact__link" href="tel:+442070027440">+44 (0)20 7002 7440</a>
+                </p>
+                <p class="contact__email">
+                    <label>Email</label>
+                    <a class="contact__link" href="mailto:patrick.bowes@omg.co.uk" class="email">patrick.bowes@omg.co.uk</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="contact clearfix">
+            <div class="col-md-4 pl-0">
+                <img src="http://www.oldmutualplc.com/userimages/OMCOM_People_-DominicLagan_292x300.jpg" alt="Dominic Lagan" class="img-responsive">
+            </div>
+            <div class="col-md-8 p-0">
+                <h5 class="text-uppercase contact__title">Dominic Lagan</h5>
+                <p class="text-uppercase contact__position">Investor Relations Manager (UK)</p>
+                <p class="contact__phone">
+                    <label>Tel</label>
+                    <a class="contact__link" href="tel:+442070027190">+44 (0)20 7002 7190</a>
+                </p>
+                <p class="contact__email">
+                    <label>Email</label>
+                    <a class="contact__link" href="mailto:dominic.lagan@omg.co.uk" class="email">dominic.lagan@omg.co.uk</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="contact clearfix">
+            <div class="col-md-4 pl-0">
+                <img src="http://www.oldmutualplc.com/userimages/Deward.jpg" alt="Deward Serfontein " class="img-responsive">
+            </div>
+            <div class="col-md-8 p-0">
+                <h5 class="text-uppercase contact__title">Deward Serfontein </h5>
+                <p class="text-uppercase contact__position">Specialist Support Investor Relations</p>
+                <p class="contact__phone">
+                    <label>Tel</label>
+                    <a class="contact__link" href="tel:+27828105672">+27 82 810 5672</a>
+                </p>
+                <p class="contact__email">
+                    <label>Email</label>
+                    <a class="contact__link" href="mailto:dserfontein@oldmutual.com" class="email">dserfontein@oldmutual.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="contact clearfix">
+            <div class="col-md-4 pl-0">
+                <img src="http://www.oldmutualplc.com/userimages/OMCOM_People_DeniseFleming_292x300.jpg" alt="Denise Fleming" class="img-responsive">
+            </div>
+            <div class="col-md-8 p-0">
+                <h5 class="text-uppercase contact__title">Denise Fleming</h5>
+                <p class="text-uppercase contact__position">Investor Relations Executive</p>
+                <p class="contact__phone">
+                    <label>Tel</label>
+                    <a class="contact__link" href="tel:+442070027175">+44 (0)20 7002 7175</a>
+                </p>
+                <p class="contact__email">
+                    <label>Email</label>
+                    <a class="contact__link" href="mailto:denise.fleming@omg.co.uk " class="email">denise.fleming@omg.co.uk </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="contact clearfix">
+            <div class="col-md-4 pl-0">
+                <img src="http://www.oldmutualplc.com/userimages/OMCOM_People_TaraHogg_292x300.jpg" alt="Tara Hogg (Maternity leave)" class="img-responsive">
+            </div>
+            <div class="col-md-8 p-0">
+                <h5 class="text-uppercase contact__title">Tara Hogg (Maternity leave)</h5>
+                <p class="text-uppercase contact__position">Investor Relations Co-ordinator (UK)</p>
+                <p class="contact__phone">
+                    <label>Tel</label>
+                    <a class="contact__link" href="tel:+442070027457">+44 (0)20 7002 7457 </a>
+                </p>
+                <p class="contact__email">
+                    <label>Email</label>
+                    <a class="contact__link" href="mailto:tara.hogg@omg.co.uk" class="email">tara.hogg@omg.co.uk</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="contact clearfix">
+            <div class="col-md-4 pl-0">
+                <img src="http://www.oldmutualplc.com/userimages/OMCOM_People_Caral-AnnevanderWesthuizen_292x300.jpg" alt="Caral-Anne van der Westhuizen"
+                    class="img-responsive">
+            </div>
+            <div class="col-md-8 p-0">
+                <h5 class="text-uppercase contact__title">Caral-Anne van der Westhuizen</h5>
+                <p class="text-uppercase contact__position">Investor Relations &amp; Communications Co-ordinator </p>
+                <p class="contact__phone">
+                    <label>Tel</label>
+                    <a class="contact__link" href="tel:27215090101">27 (0)21 509 0101 </a>
+                </p>
+                <p class="contact__email">
+                    <label>Email</label>
+                    <a class="contact__link" href="mailto:caral-annev@omg.co.uk " class="email">caral-annev@omg.co.uk </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  {% endblock %}
+
